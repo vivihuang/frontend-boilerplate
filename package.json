@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server -d --history-api-fallback --hot --inline --progress --colors --port 3000",
+    "start": "NODE_ENV=development webpack-dev-server -d --history-api-fallback --hot --inline --progress --colors --port 3000",
     "build": "NODE_ENV=production webpack --progress --colors"
   },
   "license": "MIT",
@@ -31,6 +31,8 @@
     "react-router-redux": "^4.0.4",
     "redux": "^3.5.2",
     "redux-actions": "^0.9.1",
+    "redux-logger": "^2.6.1",
+    "redux-promise": "^0.5.3",
     "rucksack-css": "^0.8.6",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.1",

@@ -3978,6 +3978,16 @@
       "from": "redux-actions@>=0.9.1 <0.10.0",
       "resolved": "https://registry.npmjs.org/redux-actions/-/redux-actions-0.9.1.tgz"
     },
+    "redux-logger": {
+      "version": "2.6.1",
+      "from": "redux-logger@latest",
+      "resolved": "https://registry.npmjs.org/redux-logger/-/redux-logger-2.6.1.tgz"
+    },
+    "redux-promise": {
+      "version": "0.5.3",
+      "from": "redux-promise@latest",
+      "resolved": "https://registry.npmjs.org/redux-promise/-/redux-promise-0.5.3.tgz"
+    },
     "regenerate": {
       "version": "1.2.1",
       "from": "regenerate@>=1.2.1 <2.0.0",

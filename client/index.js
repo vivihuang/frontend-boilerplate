@@ -8,7 +8,7 @@ import React from 'react'
 import App from './containers/App'
 import configure from './store'
 
-const store = configure()
+const store = configure(undefined, process.env)
 const history = syncHistoryWithStore(browserHistory, store)
 
 ReactDOM.render(
