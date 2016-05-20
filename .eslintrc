@@ -1,0 +1,12 @@
+{
+  "parser": "babel-eslint",
+    "rules": {
+      "semi": ["error", "never"],
+      "comma-dangle": ["error", "never"],
+      "jsx-quotes": ["error", "prefer-single"]
+    },
+    "extends": "airbnb",
+    "plugins": [
+      "react"
+    ]
+}
