@@ -1,5 +1,5 @@
 
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import classnames from 'classnames'
 import style from './style.css'
 
@@ -39,16 +39,26 @@ class TodoTextInput extends Component {
     }, style.normal)
 
     return (
-      <input className={classes}
-        type="text"
-        autoFocus="true"
+      <input
+        className={classes}
+        type='text'
+        autoFocus='true'
         placeholder={this.props.placeholder}
         value={this.state.text}
         onBlur={::this.handleBlur}
         onChange={::this.handleChange}
-        onKeyDown={::this.handleSubmit} />
+        onKeyDown={::this.handleSubmit}
+      />
     )
   }
+}
+
+TodoTextInput.propTypes = {
+  text: PropTypes.string,
+  onSave: PropTypes.func.isRequired,
+  newTodo: PropTypes.bool,
+  editing: PropTypes.bool,
+  placeholder: PropTypes.string
 }
 
 export default TodoTextInput

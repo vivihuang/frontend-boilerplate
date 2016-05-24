@@ -1,5 +1,5 @@
 
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import TodoTextInput from '../TodoTextInput'
 
 class Header extends Component {
@@ -16,10 +16,15 @@ class Header extends Component {
         <TodoTextInput
           newTodo
           onSave={::this.handleSave}
-          placeholder="What needs to be done?" />
+          placeholder='What needs to be done?'
+        />
       </header>
     )
   }
+}
+
+Header.propTypes = {
+  addTodo: PropTypes.func.isRequired
 }
 
 export default Header

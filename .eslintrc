@@ -1,8 +1,8 @@
 {
   "parser": "babel-eslint",
     "rules": {
-      "semi": ["error", "never"],
-      "comma-dangle": ["error", "never"],
+      "semi": ["off"],
+      "comma-dangle": ["off"],
       "jsx-quotes": ["error", "prefer-single"]
     },
     "extends": "airbnb",

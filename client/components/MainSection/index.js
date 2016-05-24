@@ -1,5 +1,5 @@
 
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import TodoItem from '../TodoItem'
 import Footer from '../Footer'
 import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../../constants/filters'
@@ -30,29 +30,34 @@ class MainSection extends Component {
 
   renderToggleAll(completedCount) {
     const { todos, actions } = this.props
+    let inputBox
     if (todos.length > 0) {
-      return <input
+      inputBox = (<input
         className={style.toggleAll}
-        type="checkbox"
+        type='checkbox'
         checked={completedCount === todos.length}
-        onChange={actions.completeAll} />
+        onChange={actions.completeAll}
+      />)
     }
+    return inputBox
   }
 
   renderFooter(completedCount) {
     const { todos } = this.props
     const { filter } = this.state
     const activeCount = todos.length - completedCount
+    let footer
 
     if (todos.length) {
-      return (
-        <Footer completedCount={completedCount}
-          activeCount={activeCount}
-          filter={filter}
-          onClearCompleted={::this.handleClearCompleted}
-          onShow={::this.handleShow} />
-      )
+      footer = (<Footer
+        completedCount={completedCount}
+        activeCount={activeCount}
+        filter={filter}
+        onClearCompleted={::this.handleClearCompleted}
+        onShow={::this.handleShow}
+      />)
     }
+    return footer
   }
 
   render() {
@@ -60,9 +65,7 @@ class MainSection extends Component {
     const { filter } = this.state
 
     const filteredTodos = todos.filter(TODO_FILTERS[filter])
-    const completedCount = todos.reduce((count, todo) => {
-      return todo.completed ? count + 1 : count
-    }, 0)
+    const completedCount = todos.reduce((count, todo) => (todo.completed ? count + 1 : count), 0)
 
     return (
       <section className={style.main}>
@@ -76,6 +79,11 @@ class MainSection extends Component {
       </section>
     )
   }
+}
+
+MainSection.propTypes = {
+  todos: PropTypes.array.isRequired,
+  actions: PropTypes.object.isRequired
 }
 
 export default MainSection

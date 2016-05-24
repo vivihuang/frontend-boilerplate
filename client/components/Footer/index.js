@@ -1,5 +1,5 @@
 
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../../constants/filters'
 import classnames from 'classnames'
 import style from './style.css'
@@ -27,9 +27,11 @@ class Footer extends Component {
     const { filter: selectedFilter, onShow } = this.props
 
     return (
-      <a className={classnames({ [style.selected]: filter === selectedFilter })}
-         style={{ cursor: 'pointer' }}
-         onClick={() => onShow(filter)}>
+      <a
+        className={classnames({ [style.selected]: filter === selectedFilter })}
+        style={{ cursor: 'pointer' }}
+        onClick={() => onShow(filter)}
+      >
         {title}
       </a>
     )
@@ -37,13 +39,15 @@ class Footer extends Component {
 
   renderClearButton() {
     const { completedCount, onClearCompleted } = this.props
+    let button
     if (completedCount > 0) {
-      return (
+      button = (
         <button className={style.clearCompleted} onClick={onClearCompleted} >
           Clear completed
         </button>
       )
     }
+    return button
   }
 
   render() {
@@ -61,6 +65,14 @@ class Footer extends Component {
       </footer>
     )
   }
+}
+
+Footer.propTypes = {
+  completedCount: PropTypes.number.isRequired,
+  onClearCompleted: PropTypes.func.isRequired,
+  activeCount: PropTypes.number.isRequired,
+  filter: PropTypes.string.isRequired,
+  onShow: PropTypes.func.isRequired
 }
 
 export default Footer
