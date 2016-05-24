@@ -3,7 +3,7 @@ var webpack = require('webpack')
 var path = require('path')
 
 module.exports = {
-  context: path.join(__dirname, './client'),
+  context: path.join(__dirname, './src'),
   entry: {
     jsx: './index.js',
     html: './index.html',
@@ -34,7 +34,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        include: /client/,
+        include: /src/,
         loaders: [
           'style-loader',
           'css-loader?modules&sourceMap&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
@@ -43,7 +43,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        exclude: /client/,
+        exclude: /src/,
         loader: 'style!css'
       },
       {
@@ -71,7 +71,7 @@ module.exports = {
     })
   ],
   devServer: {
-    contentBase: './client',
+    contentBase: './src',
     hot: true
   }
 }
