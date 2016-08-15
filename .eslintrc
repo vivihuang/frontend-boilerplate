@@ -1,12 +1,16 @@
 {
   "parser": "babel-eslint",
-    "rules": {
-      "semi": ["off"],
-      "comma-dangle": ["off"],
-      "jsx-quotes": ["error", "prefer-single"]
-    },
-    "extends": "airbnb",
-    "plugins": [
-      "react"
-    ]
+  "env": {
+    "browser": true
+  },
+  "rules": {
+    "semi": ["off"],
+    "comma-dangle": ["off"],
+    "jsx-quotes": ["error", "prefer-single"],
+    "react/jsx-filename-extension": ["off"]
+  },
+  "extends": "airbnb",
+  "plugins": [
+    "react"
+  ]
 }

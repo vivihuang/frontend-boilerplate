@@ -1,6 +1,7 @@
 var rucksack = require('rucksack-css')
 var webpack = require('webpack')
 var path = require('path')
+var styleLintPlugin = require('stylelint-webpack-plugin')
 
 module.exports = {
   context: path.join(__dirname, './src'),
@@ -25,7 +26,11 @@ module.exports = {
   },
   module: {
     preLoaders: [
-      {test: /\.js$/, loader: "eslint-loader", exclude: /node_modules/}
+      {
+        test: /\.js$/,
+        loader: 'eslint-loader',
+        exclude: /node_modules/
+      }
     ],
     loaders: [
       {
@@ -65,6 +70,13 @@ module.exports = {
     })
   ],
   plugins: [
+    new styleLintPlugin({
+      configFile: './.stylelintrc',
+      context: './src',
+      files: '**/*.css',
+      failOnError: false,
+      quiet: false,
+    }),
     new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
     new webpack.DefinePlugin({
       'process.env': { NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development') }
