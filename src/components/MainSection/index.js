@@ -15,6 +15,8 @@ class MainSection extends Component {
   constructor(props, context) {
     super(props, context)
     this.state = { filter: SHOW_ALL }
+    this.handleClearCompleted = this.handleClearCompleted.bind(this)
+    this.handleShow = this.handleShow.bind(this)
   }
 
   handleClearCompleted() {
@@ -53,8 +55,8 @@ class MainSection extends Component {
         completedCount={completedCount}
         activeCount={activeCount}
         filter={filter}
-        onClearCompleted={::this.handleClearCompleted}
-        onShow={::this.handleShow}
+        onClearCompleted={this.handleClearCompleted}
+        onShow={this.handleShow}
       />)
     }
     return footer

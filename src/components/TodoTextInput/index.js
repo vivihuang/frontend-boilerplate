@@ -9,6 +9,9 @@ class TodoTextInput extends Component {
     this.state = {
       text: this.props.text || ''
     }
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleChange = this.handleChange.bind(this)
+    this.handleBlur = this.handleBlur.bind(this)
   }
 
   handleSubmit(e) {
@@ -47,9 +50,9 @@ class TodoTextInput extends Component {
         autoFocus='true'
         placeholder={this.props.placeholder}
         value={this.state.text}
-        onBlur={::this.handleBlur}
-        onChange={::this.handleChange}
-        onKeyDown={::this.handleSubmit}
+        onBlur={this.handleBlur}
+        onChange={this.handleChange}
+        onKeyDown={this.handleSubmit}
       />
     )
   }

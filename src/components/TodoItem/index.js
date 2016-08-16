@@ -9,6 +9,7 @@ class TodoItem extends Component {
     this.state = {
       editing: false
     }
+    this.handleDoubleClick = this.handleDoubleClick.bind(this)
   }
 
   handleDoubleClick() {
@@ -46,7 +47,7 @@ class TodoItem extends Component {
             onChange={() => completeTodo(todo.id)}
           />
 
-          <label htmlFor='item' onDoubleClick={::this.handleDoubleClick}>
+          <label htmlFor='item' onDoubleClick={this.handleDoubleClick}>
             {todo.text}
           </label>
 
