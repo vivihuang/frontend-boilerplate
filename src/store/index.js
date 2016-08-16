@@ -23,6 +23,7 @@ export default function configure(initialState, processEnv) {
     module.hot.accept('../reducers', () => {
       /* eslint global-require:0 */
       const nextReducer = require('../reducers')
+
       store.replaceReducer(nextReducer)
     })
   }

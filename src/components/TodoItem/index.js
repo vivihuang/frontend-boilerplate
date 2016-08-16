@@ -1,7 +1,6 @@
-
+import classnames from 'classnames'
 import React, { Component, PropTypes } from 'react'
 import TodoTextInput from '../TodoTextInput'
-import classnames from 'classnames'
 import style from './style.css'
 
 class TodoItem extends Component {
@@ -47,7 +46,7 @@ class TodoItem extends Component {
             onChange={() => completeTodo(todo.id)}
           />
 
-          <label onDoubleClick={::this.handleDoubleClick}>
+          <label htmlFor='item' onDoubleClick={::this.handleDoubleClick}>
             {todo.text}
           </label>
 
