@@ -6,5 +6,9 @@ const initialState = [{
 }]
 
 export default handleActions({
-
-}, initialState)
+  'add todo': (state, action) => [...state, {
+    id: state[state.length - 1].id + 1,
+    text: action.payload
+  }]
+}
+, initialState)
